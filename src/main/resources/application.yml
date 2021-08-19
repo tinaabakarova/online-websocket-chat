@@ -1,0 +1,38 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/test
+    initialization-mode: always
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    data: classpath:data.sql
+    username: root
+    password: abc
+
+
+  jpa:
+    generate-ddl: false
+    hibernate:
+      ddl-auto: none
+    database: mysql
+
+    show-sql: true
+
+debug: true
+
+server:
+  port: 8081
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+  health:
+    defaults:
+      enabled: true
+
+logging:
+  file:
+    path: /var/log
