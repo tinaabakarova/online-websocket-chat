@@ -13,8 +13,6 @@ import javax.persistence.*;
 @Builder
 @Entity
 @Table(name = "chats")
-@NamedEntityGraph(name = "chat-entity-graph",
-        attributeNodes = {@NamedAttributeNode("sender"), @NamedAttributeNode("recipient")})
 public class Chat {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,12 +22,10 @@ public class Chat {
     @Column(name = "chat_id", nullable = false, unique = true)
     private String chatId;
 
-    //@BatchSize(size = 5)
     @OneToOne(targetEntity = User.class, cascade = CascadeType.MERGE)
     @JoinColumn(name = "sender_id", nullable = false)
     private User sender;
 
-   // @BatchSize(size = 5)
     @OneToOne(targetEntity = User.class, cascade = CascadeType.MERGE)
     @JoinColumn(name = "recipient_id", nullable = false)
     private User recipient;
