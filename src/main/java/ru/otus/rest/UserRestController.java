@@ -1,16 +1,10 @@
 package ru.otus.rest;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import ru.otus.domain.Chat;
 import ru.otus.domain.User;
-import ru.otus.dto.ChatDto;
 import ru.otus.dto.UserDto;
-import ru.otus.security.IAuthenticationFacade;
 import ru.otus.service.UserService;
 
 import java.util.List;

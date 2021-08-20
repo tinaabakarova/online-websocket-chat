@@ -46,18 +46,4 @@ public class ChatController {
                           message);
         return message;
     }
-
-    @GetMapping("/messages/{senderId}/{recipientId}/count")
-    public ResponseEntity<Long> countNewMessages(@PathVariable long senderId, @PathVariable long recipientId) {
-        String chat_id = chatService.getChatIdBySenderAndRecipient(senderId, recipientId);
-        return ResponseEntity
-                .ok(chatMessageService.countByChatIdAndStatus(chat_id, MessageStatus.RECEIVED));
-    }
-
-
-    @GetMapping("/messages/{id}")
-    public ResponseEntity<?> findMessage(@PathVariable long id) {
-        return ResponseEntity
-                .ok(chatMessageService.findById(id).orElseThrow(EntityNotFoundException::new));
-    }
 }

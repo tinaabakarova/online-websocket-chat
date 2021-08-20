@@ -23,17 +23,12 @@ import java.util.stream.StreamSupport;
 public class ChatMessagesRestController {
     private final ChatMessageService chatMessageService;
     private final ChatService chatService;
-    private final UserService userService;
-    private final IAuthenticationFacade authenticationFacade;
 
     @Autowired
     public ChatMessagesRestController(ChatMessageService chatMessageService,
-                                      ChatService chatService,
-                                      UserService userService, IAuthenticationFacade authenticationFacade) {
+                                      ChatService chatService) {
         this.chatMessageService = chatMessageService;
         this.chatService = chatService;
-        this.userService = userService;
-        this.authenticationFacade = authenticationFacade;
     }
 
     @GetMapping("/messages/{senderId}/{recipientId}")
